@@ -1,0 +1,70 @@
+
+{% extends "layout.html" %}
+{% from '_macros.html' import render_field%}
+
+{% block content%}
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+    <form action="/usuarios" method="post">
+      <div class="mb-3 row">
+          
+          <div class="col-sm-10">
+
+            {{render_field(form.matricula)}}
+
+          </div>
+        </div>
+        <div class="mb-3 row">
+        
+          <div class="col-sm-10">
+            
+            {{render_field(form.nombre)}}
+          </div>
+        </div>
+        <div class="mb-3 row">
+         
+          <div class="col-sm-10">
+            
+            {{render_field(form.apaterno)}}
+          </div>
+        </div>
+        <div class="mb-3 row">
+         
+            <div class="col-sm-10">
+              
+              {{render_field(form.email)}}
+            </div>
+          </div>
+          <div class="mb-3 row">
+         
+            <div class="col-sm-10">
+              
+              {{render_field(form.materias)}}
+            </div>
+          </div>
+          <div class="mb-3 row">
+         
+            <div class="col-sm-10">
+              
+              {{render_field(form.radios)}}
+            </div>
+          </div>
+        <div class="mb-3 row">
+        
+          <div class="col-sm-10">
+            <input type="submit" class="btn btn-primary" value="enviar">
+          </div>
+        </div>
+  </form>
+</div>
+<div class="col-6">
+    <h1>NOMBRE: {{nom}}</h1>
+    <h1>Apaterno: {{apa}}</h1>
+</div>
+  </div>
+</div>
+
+
+
+  {% endblock %} 
