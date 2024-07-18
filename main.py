@@ -11,36 +11,6 @@ def index():
     lista=['Mario','Pedro','Juan']
     return render_template("index.html",titulo=titulo,lista=lista)
 
-@app.route("/saludo")
-def saludo():
-        return "<H1>Saludo desde Saludo</H1>"
-    
-@app.route("/formulario1")
-def formulario1():
-    return render_template("formulario1.html")
-
-
-@app.route("/formulario2",methods=['GET','post'])
-def formulario2():
-    num1=0
-    num2=0
-    if request.method=='POST':
-        num1=int(request.form.get("n1"))
-        num2=int(request.form.get("n2"))
-        return render_template("formulario2.html",num1=num1,num2=num2)
-     
-    return render_template("formulario2.html",num1=num1,num2=num2)
-
-
-
-@app.route("/imprime",methods=['post'])
-def imprime():
-        nom=request.form.get("nom")
-        apa=request.form.get("apaterno")
-        
-        return render_template("imprime.html",nom=nom,apa=apa)
-    
-    
 
 @app.route("/usuarios",methods=['GET','post'])
 def usuarios():
