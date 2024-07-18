@@ -1,4 +1,4 @@
-from flask import Flask,render_template, request, url_for
+from flask import Flask,render_template, request, url_for, redirect
 from flask_material import Material
 
 from flask_wtf.csrf import CSRFProtect
@@ -37,11 +37,18 @@ def alumnos():
                      email=alum_form.email.data) 
         db.session.add(alum)
         db.session.commit()
+        mensaje='Registro Nuevo'
+        flash(mensaje)
+        return redirect(url_for('ABCompleto'))
     
     return render_template("alumnos.html",form=alum_form)
      
     
-
+@app.route("/ABC_Completo",methods=['GET','POST'])
+def ABCompleto():
+    create_form=forms.UserForm2(request.form)
+    alumno=Alumnos.query.all()
+    return render_template('ABC_Completo.html',form=create_form,alumno=alumno)
 
 
 @app.route("/usuarios",methods=['GET','post'])
